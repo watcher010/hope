@@ -1,6 +1,8 @@
 export const config = {
   wsUrl: import.meta.env.PROD 
-    ? `wss://${window.location.host}/ws` 
+    ? import.meta.env.VITE_WS_URL
     : `ws://localhost:${import.meta.env.VITE_WS_PORT || 8080}`,
-  esp32Url: import.meta.env.VITE_ESP32_WS_URL || 'ws://localhost:81'
+  apiUrl: import.meta.env.PROD
+    ? import.meta.env.VITE_API_URL
+    : `http://localhost:${import.meta.env.VITE_PORT || 3000}`
 };
